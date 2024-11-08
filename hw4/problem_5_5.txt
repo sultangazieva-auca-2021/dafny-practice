@@ -1,0 +1,21 @@
+Difference between:
+
+calc {
+    A;
+==>
+    B;
+==>
+    C;
+}
+
+and
+
+assert A ==> B ==> C;
+
+'calc' blocks gives more intermediate steps for an easier verification process. 
+With a calc block, we can reason that for A to imply C, B should also be satisfied. 
+If an error occurs, it is easier to track exactly which "middle" step failed in the proof.
+On the other hand, with an assert statement, the check is done in place by just checking the entire block together. 
+This may need to be broken down into smaller parts later if an error occurs. 
+They both will give same results/proof, but in terms of readability and 
+having less chances for making mistakes 'calc' block would be better to use.
